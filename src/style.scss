@@ -199,6 +199,17 @@
           cursor: pointer;
         }
       }
+
+      .messages {
+        background-color: #ddddf7;
+        padding: 10px;
+      }
+
+      .input {
+        height: 50px;
+        background-color: white;
+        padding: 10px;
+      }
     }
   }
 }
