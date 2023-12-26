@@ -8,7 +8,7 @@ import {
 import { auth, db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 // import { doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -87,7 +87,9 @@ const Register = () => {
         </form>
 
         {/* login? text */}
-        <p>You do have an account? Login</p>
+        <p>
+          You do have an account? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );
