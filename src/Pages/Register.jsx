@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Add from "../img/addAvatar.png";
+// import Add from "../img/addAvatar.png";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 // import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -29,7 +29,32 @@ const Register = () => {
       );
 
       const user = userCredential.user;
+
+      console.log("Before updateProfile:", displayName);
+
+      await updateProfile(user, {
+        displayName: displayName,
+      });
+
       navigate("/");
+
+      // await setDoc(doc(db, "users", user.uid), {
+      //   uid: user.uid,
+      //   displayName,
+      //   email,
+      // });
+
+      // const storageRef = ref(storage, displayName);
+
+      // await updateProfile(user, {
+      //   displayName,
+      // });
+
+      // await setDoc(doc(db, "users", user.uid), {
+      //   uid: user.uid,
+      //   displayName,
+      //   email,
+      // });
 
       // add avatar storage
       // const storageRef = ref(storage, displayName);
