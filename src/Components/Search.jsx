@@ -15,10 +15,15 @@ const Search = () => {
 
     try {
       const querySnapshot = await getDocs(q);
+      console.log("Query Snapshot:", querySnapshot);
+
       querySnapshot.forEach((doc) => {
         setUser(doc.data());
+        console.log("Document Data:", doc.data());
       });
+
     } catch (err) {
+      console.error("Error during search:", err);
       setErr(true);
     }
   };
